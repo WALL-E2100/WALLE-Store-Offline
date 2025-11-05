@@ -44,7 +44,7 @@ export default function Page() {
           <ModelViewer
             modelPath="/guinevere-lotus-lobby.glb"
             modelName="gusion"
-            heroName="Guinevere - lotus lobby"
+            heroName="Guinevere - Lotus Lobby"
           />
         </div>
       </section>

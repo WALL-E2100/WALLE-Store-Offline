@@ -48,6 +48,7 @@ export default function ModelViewer({
         alt={heroName}
         autoplay
         camera-controls
+        disable-zoom
         ar
         style={{
           width: "100%",

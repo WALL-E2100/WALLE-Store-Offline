@@ -8,36 +8,83 @@ type TopupOption = {
   price: string;
   diamonds: number;
   category: "pass" | "diamonds";
+  note?: string;
 };
 
 // Reduced set of packages for a simpler UI
 const TOPUP_OPTIONS: TopupOption[] = [
-  // Passes (kept minimal)
-  { name: "Weekly Pass", price: "$4.99", diamonds: 0, category: "pass" },
-  { name: "Twilight Pass", price: "$9.99", diamonds: 0, category: "pass" },
+  // Passes
+  {
+    name: "WEEKLY PASS",
+    price: "₹133",
+    diamonds: 0,
+    category: "pass",
+    note: "💠❤",
+  },
+  {
+    name: "TWILIGHT PASS",
+    price: "₹700",
+    diamonds: 0,
+    category: "pass",
+    note: "💠❤",
+  },
 
-  // A trimmed list of diamond bundles (commonly used tiers)
-  { name: "172 Diamonds", price: "$0.99", diamonds: 172, category: "diamonds" },
-  { name: "275 Diamonds", price: "$1.99", diamonds: 275, category: "diamonds" },
-  { name: "565 Diamonds", price: "$4.99", diamonds: 565, category: "diamonds" },
+  // Diamond bundles (amount -> price) with optional task notes
   {
-    name: "1049 Diamonds",
-    price: "$9.99",
-    diamonds: 1049,
+    name: "86 💎",
+    price: "₹105",
+    diamonds: 86,
     category: "diamonds",
+    note: "50💎 task",
   },
   {
-    name: "2195 Diamonds",
-    price: "$19.99",
-    diamonds: 2195,
+    name: "112 💎",
+    price: "₹155",
+    diamonds: 112,
     category: "diamonds",
+    note: "100💎 task",
   },
   {
-    name: "3688 Diamonds",
-    price: "$29.99",
-    diamonds: 3688,
+    name: "172 💎",
+    price: "₹210",
+    diamonds: 172,
     category: "diamonds",
+    note: "100💎 task",
   },
+  { name: "257 💎", price: "₹315", diamonds: 257, category: "diamonds" },
+  {
+    name: "279 💎",
+    price: "₹360",
+    diamonds: 279,
+    category: "diamonds",
+    note: "250💎 task",
+  },
+  {
+    name: "344 💎",
+    price: "₹420",
+    diamonds: 344,
+    category: "diamonds",
+    note: "250💎 task",
+  },
+  { name: "429 💎", price: "₹525", diamonds: 429, category: "diamonds" },
+  { name: "514 💎", price: "₹630", diamonds: 514, category: "diamonds" },
+  {
+    name: "619 💎",
+    price: "₹735",
+    diamonds: 619,
+    category: "diamonds",
+    note: "500💎 task",
+  },
+  { name: "706 💎", price: "₹840", diamonds: 706, category: "diamonds" },
+  { name: "1050 💎", price: "₹1300", diamonds: 1050, category: "diamonds" },
+  { name: "1412 💎", price: "₹1650", diamonds: 1412, category: "diamonds" },
+  { name: "1926 💎", price: "₹2280", diamonds: 1926, category: "diamonds" },
+  { name: "2195 💎", price: "₹2500", diamonds: 2195, category: "diamonds" },
+  { name: "3688 💎", price: "₹4100", diamonds: 3688, category: "diamonds" },
+  { name: "5532 💎", price: "₹6100", diamonds: 5532, category: "diamonds" },
+  { name: "6042 💎", price: "₹7400", diamonds: 6042, category: "diamonds" },
+  { name: "9288 💎", price: "₹10000", diamonds: 9288, category: "diamonds" },
+  { name: "20074 💎", price: "₹25000", diamonds: 20074, category: "diamonds" },
 ];
 
 interface TopupSelectorProps {
@@ -92,9 +139,12 @@ export default function TopupSelector({
                 Special Pass
               </Badge>
             )}
-            <div className="text-lg font-bold text-accent mb-3">
+            <div className="text-lg text-green-300 font-bold text-accent mb-1">
               {option.price}
             </div>
+            {option.note && (
+              <div className="text-xs text-slate-400 mb-2">{option.note}</div>
+            )}
             {isSelected && (
               <div className="text-xs text-cyan-300 font-medium">
                 ✓ Selected
